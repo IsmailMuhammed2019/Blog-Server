@@ -4,18 +4,17 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 mongoose.connect(
-  "mongodb+srv://BlogUser:jAVhPqR9YORwjwXW@cluster0-fc8do.gcp.mongodb.net/BlogDB?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  }
-);
+  process.env.MONODB_URI,{useNewUrlParser: true, useUnifiedTopology : true})
+  .then(()=>{
+    console.log('mongodb connected')
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDb connected");
-});
+  })
+;
+
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log("MongoDb connected");
+// });
 
 //middleware
 app.use("/uploads", express.static("uploads"));

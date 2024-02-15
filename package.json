@@ -17,6 +17,6 @@
     "nodemon": "^2.0.4"
   },
   "engines": {
-    "node": "8.x"
+    "node": "18.x"
   }
 }
