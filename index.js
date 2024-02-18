@@ -28,11 +28,11 @@ const blogRoute = require("./routes/blogpost");
 app.use("/blogPost", blogRoute);
 
 data = {
-  msg: "Welcome on DevStack Blog App development YouTube video series",
+  msg: "Welcome to a test server",
   info: "This is a root endpoint",
   Working: "Documentations of other endpoints will be release soon :)",
   request:
-    "Hey if you did'nt subscribed my YouTube channle please subscribe it",
+    "If this message is seen, that means the api is working",
 };
 
 app.route("/").get((req, res) => res.json(data));
