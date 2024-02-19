@@ -31,9 +31,9 @@ router.route("/checkusername/:username").get((req, res) => {
 
 router.route("/login").post((req, res) => {
   User.findOne({ username: req.body.username }, (err, result) => {
-    if (err) return res.status(500).json({ msg: err });
+    if (err) return res.status(500).json({ msg: err.message }); // Return error message as JSON object
     if (result === null) {
-      return res.status(403).json("Username incorrect");
+      return res.status(403).json({ msg: "Username incorrect" }); // Return error message as JSON object
     }
     if (result.password === req.body.password) {
       // here we implement the JWT token functionality
@@ -44,7 +44,7 @@ router.route("/login").post((req, res) => {
         msg: "success",
       });
     } else {
-      res.status(403).json("password is incorrect");
+      res.status(403).json({ msg: "Password is incorrect" }); // Return error message as JSON object
     }
   });
 });
