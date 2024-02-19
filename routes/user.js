@@ -53,8 +53,9 @@ router.route("/register").post((req, res) => {
   console.log("inside the register");
   const user = new User({
     username: req.body.username,
-    password: req.body.password,
     email: req.body.email,
+    password: req.body.password,
+    
   });
   user
     .save()
